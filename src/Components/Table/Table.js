@@ -47,13 +47,15 @@ export default class Table extends React.Component {
       language: 'en-US'
     };
   }
-  
+
   render() {
     return (
       <div id="hot">
         <HotTable 
+          ref={ this.props.table }
           data={ this.props.data } 
           settings={ this.hotSettings } 
+          //afterChange={}
           licenseKey='non-commercial-and-evaluation' 
         />
       </div>
