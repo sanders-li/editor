@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# React + Handsontable with Server-side storage
 
 Basic React implementation of Handsontable with HTTP requests
 
