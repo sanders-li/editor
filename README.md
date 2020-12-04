@@ -1,12 +1,12 @@
-# React + Handsontable with Server-side storage
+# Full stack web table
 
-Basic React implementation of Handsontable with HTTP requests
+Basic React implementation of Handsontable, delivered through Express.js server
 
 ## Features
 
-Retrieve (GET) last table state from server
-Send (POST) table data to server
-Server-side, single origin storage
+- Retrieve last table state from server
+- Save table data to server
+- Server-side, single origin storage
 
 ## Issues
 
