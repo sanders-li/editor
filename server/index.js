@@ -11,6 +11,8 @@ const { exception } = require('console');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "..", "build")));
+app.use(express.static("public"));
 
 const data_path = path.join(__dirname, 'data');
 console.log(`File archive located at ${data_path}`)
@@ -22,7 +24,7 @@ const get_recent = () => {
     return most_recent;
 }
 
-app.get('/', (req, res) => {
+app.get('/get', (req, res) => {
     console.log('GET request received');
     try {
         let file = get_recent()
@@ -32,7 +34,7 @@ app.get('/', (req, res) => {
         })
     } catch(err) {
         console.log('No previous files are available')
-        res.sendStatus(404)
+        res.sendStatus(204)
     }
 })
 
@@ -53,7 +55,7 @@ app.post('/posts', (req, res) => {
     };
 })
 
-const port = process.env.SERVER_PORT || 3001;
+const port = process.env.SERVER_PORT || 3000;
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)

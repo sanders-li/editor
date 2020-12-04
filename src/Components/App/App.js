@@ -5,7 +5,7 @@ import Submit from '../Submit/Submit.js';
 import axios from 'axios';
 import './App.css';
 
-const API = process.env.REACT_APP_API || 'http://localhost:3001';
+const API = process.env.REACT_APP_API || 'http://localhost:3000';
 const default_data = {id: '', title: '', url: '', rank: '', date: ''}
 
 export default class App extends React.Component {
@@ -23,8 +23,9 @@ export default class App extends React.Component {
   }
 
   get_data() {
-    console.log(`%c GET request to ${API}/`, 'font-weight: bold')
-    axios.get(`${API}/`).then(res => {
+    console.log(`%c GET request to ${API}/get`, 'font-weight: bold')
+    axios.get(`${API}/get`).then(res => {
+      if (res.status == 204) throw Error("No existing data on server")
       console.log('Received:')
       console.table(res.data)
       this.setState({ data: res.data })
