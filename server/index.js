@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '.env.local' })
+// require('dotenv').config({ path: '.env.local' })
 
 const express = require('express');
 const cors = require('cors');
@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
-const { exception } = require('console');
 
 const app = express();
 app.use(cors());
